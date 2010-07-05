@@ -1,0 +1,8 @@
+((egg "call-with-connection.egg")
+ (license "GPL-3")
+ (category databases)
+ (needs setup-helper sqlite3)
+ (author "Peter Danenberg")
+ (synopsis "sqlite3 call-with-connection abstraction with timeout and finalizer")
+ (files "call-with-connection.scm"
+        "call-with-connection.setup"))
