@@ -1,0 +1,3 @@
+# -*- org -*-
+* TODO should be called =call-with-sqlite3-connection=
+  unless we create some database abstractions.
