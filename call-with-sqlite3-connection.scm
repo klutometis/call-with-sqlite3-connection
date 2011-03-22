@@ -1,6 +1,6 @@
 (module
- call-with-connection
- (call-with-connection)
+ call-with-sqlite3-connection
+ (call-with-sqlite3-connection)
 
  (import scheme chicken)
 
@@ -14,13 +14,14 @@
        (set-busy-handler! connection handler)
        connection)))
 
- (define call-with-connection
+ (define call-with-sqlite3-connection
    (case-lambda
     ((database procedure)
-     (call-with-connection database procedure timeout))
+     (call-with-sqlite3-connection database procedure timeout))
     ((database procedure timeout)
-     (let ((database (open-database/timeout database timeout)))
-       (dynamic-wind
-           (lambda () #f)
-           (lambda () (procedure database))
-           (lambda () (finalize! database #t))))))))
+     (dynamic-wind
+         (lambda () (set! database
+                          (open-database/timeout database timeout)))
+         (lambda () (procedure database))
+         (lambda () (finalize! database #t)))))))
+
