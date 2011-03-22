@@ -1,5 +1,5 @@
 (include "setup-helper")
 
 (setup-shared-extension-module
- 'call-with-connection
+ 'call-with-sqlite3-connection
  (extension-version 0.1))

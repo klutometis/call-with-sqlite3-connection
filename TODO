@@ -1,3 +1,4 @@
 # -*- org -*-
-* TODO should be called =call-with-sqlite3-connection=
+* DONE should be called =call-with-sqlite3-connection=
+  CLOSED: [2011-03-22 Tue 00:14]
   unless we create some database abstractions.
