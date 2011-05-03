@@ -6,7 +6,7 @@
 
  (use sqlite3)
 
- (define timeout 2000)
+ (define default-timeout (make-parameter 2000))
 
  (define (open-database/timeout database timeout)
    (let ((handler (make-busy-timeout timeout)))
@@ -17,7 +17,7 @@
  (define call-with-sqlite3-connection
    (case-lambda
     ((database procedure)
-     (call-with-sqlite3-connection database procedure timeout))
+     (call-with-sqlite3-connection database procedure (default-timeout)))
     ((database procedure timeout)
      (dynamic-wind
          (lambda () (set! database
