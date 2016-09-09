@@ -1,5 +1,5 @@
-(include "setup-helper")
+(use setup-helper-mod)
 
 (setup-shared-extension-module
  'call-with-sqlite3-connection
- (extension-version 0.1))
+ (extension-version "0.1.3"))
